@@ -15,6 +15,7 @@ app.get("/", (req,res)=>{
 })
 
 app.use("/api/auth", require("./routes/auth"))
+app.use("/api/user", require("./routes/user.route"))
 app.get("/another", auth, (req,res)=> {
     res.json("Another api")
 })

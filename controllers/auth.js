@@ -1,7 +1,7 @@
 const User = require("../models/User.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const mongoose = require("mongoose")
+
 
 exports.Register = async(req,res)=>{
  try{
@@ -69,15 +69,3 @@ exports.Login = (req, res) => {
     return res.status(400).send(error)
 }
   };
-
-  exports.getUser = async(req,res)=>{
-    try{
-      let userId = req.user?.userId;
-      let info = await User.findOne({_id: mongoose.Types.ObjectId(userId)});    
-       return res.status(200).json(info);
-    }
-    catch(error){
-     console.log(error)
-     res.status(400).json(error)
-    }
-  }
