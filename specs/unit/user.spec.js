@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const User = require('../../models/User');
 
-describe('User Model Unit Tests', () => {
+const connection = process.env.DB_URL;
+
+describe('User - CRUD Unit Tests', () => {
     // connect to the datbase
     beforeAll(async () => {
         try{
@@ -152,7 +154,7 @@ describe('User Model Unit Tests', () => {
     });
 });
 
-describe('User Model - Login', () => {
+describe('User - Login', () => {
     let testUser;
 
     beforeAll(async () => {
